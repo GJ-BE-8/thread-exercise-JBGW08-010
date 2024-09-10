@@ -45,7 +45,8 @@ public class App
         log.debug("threadB-state:{}",threadB.getState());
 
         //TODO#1 - main Thread 에서 3초 후  threadA에 interrupt 예외를 발생 시킴 니다.
-
+        try{Thread.wait();} catch (InterruptedException e) {throw new RuntimeException(e);}
+        threadA.interrupt();
         //TODO#3 Main Thread가 threadA, ThreadB가 종료될 때 까지 대기 합니다. Thread.yield를 사용 합니다.
 
         //threadA, threadB 상태를 출력 합니다.
